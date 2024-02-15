@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "punctuality-performance-app",
+  "private_key_id": "7d24d6638adc7b52e47df1c32cd418ff06dc3d30",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWREtqCOfNmgc8\njNKRWIpWyoMrgEHH5UUpkmijMIp45qTaUzL3NunLMCa6QmLohe7RB8dPI1piiBat\nIpusfdIZv1zJE81IBVoN+LK4KU0ZIJfL7/L9W3PBHK/Oyz1SgJuL/zO3P1Y9qnZY\nKt8nlip7I+/g82actb3ipP3Hal1lPM71cy1bglc6HHOSwZnTEYtVrUB5/yUF0qoo\ncxWf5GQml1DlLX6k8ZynQpAJ2MiE4sEa3VZ+NseOTEJy6BaRcYXWWqtMv6OXJabd\nAZQsJFIDjY9oJoGmSSLuSoqC3ImAZGl3qoX2nP7E82wSZnCK9A6hNblH8cw5H+dn\niD4MIZyJAgMBAAECggEAampu3hHgNp/qOitipSdJRcO8k81WXlZDHFuHtoz0KQm8\nFGa/6EIQqYaXpWg1QXDLZGutlGNlj4wxXvnSQUAYKgt9pKw+BygJSukashZpITKr\n0XCxyR0zh1SdCGKuaRxQpJ4x7C/7wBK6Rh28ySdun8wAZkPc0bX9wePZ2sG78vvw\nTmZJKiJeS57OnKGyj6FK7dRN6zu86cI9Z23kby6mIgwYgKvtKUPMDgoPeVbHL/f5\noXcocDNUjiBI89DSMOU0mKSrnxZ6h013nX4R0dJuhy9c72Kxk2ix/mLXcCjvQvGn\n2Do1UO2ggCRPtzuLFRb24cO4GRE82SLVrJtPi5335QKBgQD6ijjiZZ68Bfnq/8ja\nGIytSpDX65xmBxFoWP4ROw0WdFxEqhK4kQVWxRHIKAT0YZFXgEAlcs9FFsNMsnT1\nvgwl72+TOlZUcgrJjNIYfPuB6+8xZhlINjW9MwQ7AJ7xI/3HknAD8CuBvoSfk3SG\n+IFRLiBB8/X/zuYRqGp9WG/L9wKBgQDa77PDqY/zNrzIBKSdZR8MuLr+Y6pXMirq\nQlL0Y06DBhQMZ96BS9wPgXsV/Kk8NeLbQCzhE950dqnJwvvq2Z04d8BcbdmN9QKV\n8CXMfaGSACZukOJYJmrUhKkzDY0zuHRLsfq3zCvnHGbDB6lOuD1OFRVvjRrbuaxm\nI0cnO0K7fwKBgF0j/bnM5ZIo9pwys0zBS6swyWA8K0yS3Bna27k0Js1uPM8aGxOa\ndk2nvdCXcCAaFZpeB3rkj8GzkK92uJyTJpkDxosJaQbDztbXD1QjQq0uNSI8PrHl\n1VydFrmIpY4oPzRucE5GfyYg2dUpUGzM/eZcK4nZVF7hYA64eb5XnlhJAoGBAMYO\nqInt3/p+3yL3CFAWxZMFnqw5T0TYbnhDjbXmDIV9Py/F20UOckJYuRe33QVKHjKI\nCNGI3upu2sRaLvlS6ebGdm9nNLM2HaO0fw1R7ZMdrabCTPC/uE8Ov94eeUl7qUE8\n/fm9q03EpLX0PVaoV1VGv4CNnul9O5eefGTiOElTAoGAPY5NnIqlEVey2+LSThc3\nt+AnPVj7pa6L0oDuSyyOer7rrMWCxeG3q7ONYaFkf+eGXD+qqa4TdeDJQYzIWf/4\nLMm5qSkNhCezdwExHp1mmyNL3b6vpPXGSVNmRNCV0gAHsk7ilyo0fuJyHdRVJfjT\ndFE23wQvwh1lPB1mwXpZkQs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "my-rstudio-service-account@punctuality-performance-app.iam.gserviceaccount.com",
+  "client_id": "113094774587357464721",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/my-rstudio-service-account%40punctuality-performance-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
