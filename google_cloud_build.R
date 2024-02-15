@@ -171,7 +171,7 @@ get_live_flight_data <- function(flight_type, airport) {
   }
   
   data_full <- data %>%
-    rbind(test)
+    rbind(temp)
   
   print(nrow(data_full))
   return(data_full)
