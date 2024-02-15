@@ -171,7 +171,7 @@ get_live_flight_data <- function(flight_type, airport) {
   }
   
   data_full <- data %>%
-    mutate(stamp = Sys.time()) %>%
+    mutate(stamp = as.character(Sys.time())) %>%
     rbind(temp) %>%
     mutate(airline_name = ifelse(is.na(airline_name), "EasyJet", airline_name),
            airline_name = ifelse(airline_name == "Japan Airlines", "British Airways", airline_name),
