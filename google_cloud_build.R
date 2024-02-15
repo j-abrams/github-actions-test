@@ -2,23 +2,14 @@
 
 #Sys.setenv("GCS_AUTH_FILE" = "punctuality-performance-app-7d24d6638adc.json")
 library(googleCloudStorageR)
-#gcs_auth("punctuality-performance-app-7d24d6638adc.json")
+gcs_auth("punctuality-performance-app-7d24d6638adc.json")
 
-library(rsconnect)
+
 library(dplyr)
-library(ggplot2)
 library(lubridate)
-library(stats)
 library(tidyr)
 library(stringr)
-library(MASS)
-library(shinyWidgets)
-library(DT)
-library(shinyjs)
-library(shinycssloaders)
-library(shinydashboard)
-library(httr)
-library(rvest)
+
 
 
 
@@ -127,9 +118,6 @@ get_live_flight_data <- function(flight_type, airport) {
   return(data_full)
 }
 
-
-
-gcs_auth("punctuality-performance-app-7d24d6638adc.json")
 
 bucket_name <- "jersey-otp"
 
