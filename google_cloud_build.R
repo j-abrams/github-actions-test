@@ -57,10 +57,14 @@ get_airlabs_api_response <- function(key, parameter_name = "parameter1", paramet
   return(data)
 }
 
+
+
 # For gsc package command pasrsng
 f <- function(object){
   httr::content(object, encoding = "UTF-8")
 }
+
+
 
 get_live_flight_data <- function(flight_type, airport) {
   Sys.setenv(TZ = "Europe/London")
@@ -102,6 +106,16 @@ get_live_flight_data <- function(flight_type, airport) {
       select(-c(country_code.x, country_code.y, name, icao_code)) %>%
       dplyr::rename("airport_name" = "name.x", "airline_name" = "name.y") %>%
       select(airline_name, airport_name, everything())
+    
+    gcs_get_object(paste0("departures", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
+                           saveToDisk = "departures.csv", overwrite = T)
+    
+    temp <- read.csv("departures.csv")
+    
+    temp$dep_actual <- as.POSIXct(temp$dep_actual)
+    temp$dep_time <- as.POSIXct(temp$dep_time)
+    temp$dep_estimated <- as.POSIXct(temp$dep_estimated)
+    
   } else if (flight_type == "arrivals") {
     data <- get_airlabs_api_response(key = "schedules", 
                                      parameter_name = "arr_iata", 
@@ -140,20 +154,29 @@ get_live_flight_data <- function(flight_type, airport) {
       select(-c(country_code.x, country_code.y, name, icao_code)) %>%
       dplyr::rename("airport_name" = "name.x", "airline_name" = "name.y") %>%
       select(airline_name, airport_name, everything()) 
+    
+    gcs_get_object(paste0("arrivals", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
+                           saveToDisk = "arrivals.csv", overwrite = T)
+    
+    temp <- read.csv("arrivals.csv")
+    temp$arr_actual <- as.POSIXct(temp$arr_actual)
+    temp$arr_time <- as.POSIXct(temp$arr_time)
+    temp$arr_estimated <- as.POSIXct(temp$arr_estimated)
+    temp$dep_time <- as.POSIXct(temp$dep_time)
+    temp$dep_time_utc <- as.POSIXct(temp$dep_time_utc)
+    temp$arr_time_utc <- as.POSIXct(temp$arr_time_utc)
+    
   } else {
     stop("Invalid flight type. Please specify 'departures' or 'arrivals'.")
   }
-  test <- gcs_get_object(paste0(flight_type, "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
-                        saveToDisk = "temp.csv", overwrite = T)
-
-  test <- read.csv("temp.csv") %>%
-      as_data_frame()
   
   data_full <- data %>%
     rbind(test)
+  
   print(nrow(data_full))
   return(data_full)
 }
+
 
 
 bucket_name <- "jersey-otp"
