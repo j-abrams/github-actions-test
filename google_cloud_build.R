@@ -171,7 +171,15 @@ get_live_flight_data <- function(flight_type, airport) {
   }
   
   data_full <- data %>%
-    rbind(temp)
+    mutate(stamp = Sys.time()) %>%
+    rbind(temp) %>%
+    mutate(airline_name = ifelse(is.na(airline_name), "EasyJet", airline_name),
+           airline_name = ifelse(airline_name == "Japan Airlines", "British Airways", airline_name),
+           airline_name = ifelse(airline_name == "Loganair", "Blue Islands", airline_name),
+           airline_name = ifelse(airline_name == "American Airlines", "British Airways", airline_name),
+           airline_name = ifelse(airline_name == "Qatar Airways", "British Airways", airline_name)) %>%
+    arrange(dep_time, airport_name, desc(stamp)) %>%
+    distinct(dep_time, airport_name, .keep_all = TRUE)
   
   print(nrow(data_full))
   return(data_full)
