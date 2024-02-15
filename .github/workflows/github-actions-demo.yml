@@ -27,3 +27,5 @@ jobs:
             any::tidyr 
             any::stringr
             any::googleCloudStorageR
+      - name: Run Script
+        run: Rscript -e 'source("google_cloud_build.R")'
