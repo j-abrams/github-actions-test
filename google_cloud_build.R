@@ -57,6 +57,10 @@ get_airlabs_api_response <- function(key, parameter_name = "parameter1", paramet
   return(data)
 }
 
+# For gsc package command pasrsng
+f <- function(object){
+  httr::content(object, encoding = "UTF-8")
+}
 
 get_live_flight_data <- function(flight_type, airport) {
   Sys.setenv(TZ = "Europe/London")
@@ -139,7 +143,17 @@ get_live_flight_data <- function(flight_type, airport) {
   } else {
     stop("Invalid flight type. Please specify 'departures' or 'arrivals'.")
   }
-  test <- gcs_get_object(paste0(flight_type, "/combined_data_test.csv"), "jersey-otp")
+  test <- gcs_get_object(paste0(flight_type, "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
+                        saveToDisk = "temp.csv", overwrite = T)
+
+  test <- read.csv("temp.csv") %>%
+      mutate(dep_estimated = format(as.POSIXct(dep_estimated), 
+                                    "%Y-%m-%d %H:%M")) %>%
+      mutate(dep_time = as.character(dep_time),
+             dep_actual = as.character(dep_actual),
+             delayed = as.integer(delayed)) %>%
+      as_data_frame()
+  
   data_full <- data %>%
     rbind(test)
   print(nrow(data_full))
