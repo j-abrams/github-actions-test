@@ -171,7 +171,8 @@ get_live_flight_data <- function(flight_type, airport) {
   }
   
   data_full <- data %>%
-    rbind(temp)
+    rbind(temp) %>% 
+    select(-X, -"X.1", -"X.2")
   
   print(nrow(data_full))
   return(data_full)
@@ -187,6 +188,6 @@ arrivals_dd <- get_live_flight_data("arrivals", "JER")
 gcs_delete_object("departures/combined_data_test.csv", bucket_name)
 gcs_delete_object("arrivals/combined_data_test.csv", bucket_name)
 
-gcs_upload(departures_dd, bucket = bucket_name, name = "departures/combined_data_test.csv")
-gcs_upload(arrivals_dd, bucket = bucket_name, name = "arrivals/combined_data_test.csv")
+gcs_upload(departures_dd, bucket = bucket_name, name = "departures/combined_data_test_2.csv")
+gcs_upload(arrivals_dd, bucket = bucket_name, name = "arrivals/combined_data_test_2.csv")
 
