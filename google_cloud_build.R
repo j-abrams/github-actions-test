@@ -147,11 +147,6 @@ get_live_flight_data <- function(flight_type, airport) {
                         saveToDisk = "temp.csv", overwrite = T)
 
   test <- read.csv("temp.csv") %>%
-      mutate(dep_estimated = format(as.POSIXct(dep_estimated), 
-                                    "%Y-%m-%d %H:%M")) %>%
-      mutate(dep_time = as.character(dep_time),
-             dep_actual = as.character(dep_actual),
-             delayed = as.integer(delayed)) %>%
       as_data_frame()
   
   data_full <- data %>%
