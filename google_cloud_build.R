@@ -14,6 +14,34 @@ library(httr)
 
 
 
+# API Key hard coded
+#api_key <- "46ef7ea8-4b01-48a3-8377-f621ae7c0b60"
+api_key <- "ab78f260-9737-4847-9ee8-d663e76f23c9"
+
+
+# Hard coded fields to keep (41 fields reduced to 12) for arrivals
+fields_arrivals <- c("airline_iata", "airline_icao", "flight_iata", "flight_icao", "flight_number",
+                     "dep_iata", "dep_icao", 
+                     "arr_iata", "arr_icao", "arr_terminal", "arr_time", "arr_actual", "delayed", "duration")
+
+# Hard coded Fields to keep for departures
+fields_departures <- c("airline_iata", "airline_icao", "flight_iata", "flight_icao", "flight_number",
+                       "dep_iata", "dep_icao", "dep_terminal", "dep_time", "dep_actual",
+                       "arr_iata", "arr_icao", "delayed", "duration")
+
+
+
+# # 2: Airport Lookup codes
+# # Remove redundant fields with select command
+airports <- read.csv("Data/airports.csv")
+
+# # Example 3: Airline Lookup codes
+# # Match airport code with airport name
+airlines <- read.csv("Data/airlines.csv") %>% select(-X)
+
+
+
+
 # core api function
 get_airlabs_api_response <- function(key, parameter_name = "parameter1", parameter_value = "value1",
                                      parameter_name2 = "parameter2", parameter_value2 = "value2")  {
