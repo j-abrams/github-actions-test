@@ -184,11 +184,9 @@ bucket_name <- "jersey-otp"
 departures_dd <- get_live_flight_data("departures", "JER") 
 arrivals_dd <- get_live_flight_data("arrivals", "JER")
 
-#gcs_auth("Shiny/punctuality-performance-app-7d24d6638adc.json")
 gcs_delete_object("departures/combined_data_test.csv", bucket_name)
 gcs_delete_object("arrivals/combined_data_test.csv", bucket_name)
-combined_data <- departures_dd %>% select(-file, -X)
-gcs_upload(combined_data, bucket = bucket_name, name = "departures/combined_data_test.csv")
-combined_data <- arrivals_dd %>% select(-file, -X)
-gcs_upload(combined_data, bucket = bucket_name, name = "arrivals/combined_data_test.csv")
+
+gcs_upload(departures_dd, bucket = bucket_name, name = "departures/combined_data_test.csv")
+gcs_upload(arrivals_dd, bucket = bucket_name, name = "arrivals/combined_data_test.csv")
 
