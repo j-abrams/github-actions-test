@@ -33,11 +33,11 @@ fields_departures <- c("airline_iata", "airline_icao", "flight_iata", "flight_ic
 
 # # 2: Airport Lookup codes
 # # Remove redundant fields with select command
-airports <- read.csv("Raw_Data/airports.csv")
+airports <- read.csv("airports.csv")
 
 # # Example 3: Airline Lookup codes
 # # Match airport code with airport name
-airlines <- read.csv("Raw_Data/airlines.csv") %>% select(-X)
+airlines <- read.csv("airlines.csv") %>% select(-X)
 
 
 
