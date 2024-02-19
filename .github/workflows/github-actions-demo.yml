@@ -33,3 +33,5 @@ jobs:
             any::jsonlite
       - name: Run Script
         run: Rscript -e 'source("google_cloud_build.R")'
+      - name: Run Script 2
+        run: Rscript -e 'source("lax_action.R")'
