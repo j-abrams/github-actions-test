@@ -15,8 +15,8 @@ library(httr)
 
 
 # API Key hard coded
-api_key <- "46ef7ea8-4b01-48a3-8377-f621ae7c0b60"
-#api_key <- "ab78f260-9737-4847-9ee8-d663e76f23c9"
+api_key_fixed <- "46ef7ea8-4b01-48a3-8377-f621ae7c0b60"
+#api_key_fixed <- "ab78f260-9737-4847-9ee8-d663e76f23c9"
 
 
 # Hard coded fields to keep (41 fields reduced to 12) for arrivals
@@ -47,7 +47,7 @@ get_airlabs_api_response <- function(key, parameter_name = "parameter1", paramet
                                      parameter_name2 = "parameter2", parameter_value2 = "value2")  {
   url <- paste0("https://airlabs.co/api/v9/", key)
   params <- list(
-    api_key = "ab78f260-9737-4847-9ee8-d663e76f23c9"
+    api_key = api_key_fixed
   )
   params[[parameter_name]] <- parameter_value
   params[[parameter_name2]] <- parameter_value2
