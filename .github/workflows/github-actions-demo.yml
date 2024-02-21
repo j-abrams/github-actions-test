@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Jersey Data Collection
 run-name: ${{ github.actor }} is Collecting data for Jersey 🚀
 on:
   schedule:
