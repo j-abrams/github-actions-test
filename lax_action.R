@@ -15,8 +15,9 @@ library(httr)
 
 
 # API Key hard coded
-api_key_fixed <- "46ef7ea8-4b01-48a3-8377-f621ae7c0b60"
-#api_key <- "ab78f260-9737-4847-9ee8-d663e76f23c9"
+#api_key_fixed <- "46ef7ea8-4b01-48a3-8377-f621ae7c0b60"
+#api_key_fixed <- "ab78f260-9737-4847-9ee8-d663e76f23c9"
+api_key_fixed <- "dc7a7014-15b3-4c91-9825-51c82e96c8ff"
 
 
 # Hard coded fields to keep (41 fields reduced to 12) for arrivals
