@@ -2,7 +2,7 @@ name: Jersey Data Collection
 run-name: ${{ github.actor }} is Collecting data for Jersey 🚀
 on:
   schedule:
-    - cron: '0,15,30,45 6-22 * * *'
+    - cron: '0, 10, 20, 30, 40, 50 6-23 * * *'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
