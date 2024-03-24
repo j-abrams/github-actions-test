@@ -191,12 +191,13 @@ get_live_flight_data <- function(flight_type, airport) {
 
 bucket_name <- "jersey-otp"
 
-departures_dd <- get_live_flight_data("departures", "JER") 
+
+departures_dd <- get_live_flight_data("departures", "JER")
 arrivals_dd <- get_live_flight_data("arrivals", "JER")
 
-gcs_delete_object("departures/combined_data_test.csv", bucket_name)
-gcs_delete_object("arrivals/combined_data_test.csv", bucket_name)
-
-gcs_upload(departures_dd, bucket = bucket_name, name = "departures/combined_data_test.csv")
-gcs_upload(arrivals_dd, bucket = bucket_name, name = "arrivals/combined_data_test.csv")
-
+gcs_delete_object("lax/departures/combined_data_test.csv", bucket_name)
+gcs_delete_object("lax/arrivals/combined_data_test.csv", bucket_name)
+combined_data <- departures_dd %>% select(1:13)
+gcs_upload(combined_data, bucket = bucket_name, name = "lax/departures/combined_data_test.csv")
+combined_data <- arrivals_dd %>%select(1:14)
+gcs_upload(combined_data, bucket = bucket_name, name = "lax/arrivals/combined_data_test.csv")
