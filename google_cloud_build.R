@@ -109,7 +109,7 @@ get_live_flight_data <- function(flight_type, airport) {
       dplyr::rename("airport_name" = "name.x", "airline_name" = "name.y") %>%
       select(airline_name, airport_name, everything())
     
-    gcs_get_object(paste0("departures", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
+    gcs_get_object(paste0("lax/", "departures", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
                            saveToDisk = "departures.csv", overwrite = T)
     
     temp <- read.csv("departures.csv")
@@ -157,7 +157,7 @@ get_live_flight_data <- function(flight_type, airport) {
       dplyr::rename("airport_name" = "name.x", "airline_name" = "name.y") %>%
       select(airline_name, airport_name, everything()) 
     
-    gcs_get_object(paste0("arrivals", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
+    gcs_get_object(paste0("lax/", "arrivals", "/combined_data_test.csv"), "jersey-otp", parseFunction = f,
                            saveToDisk = "arrivals.csv", overwrite = T)
     
     temp <- read.csv("arrivals.csv")
